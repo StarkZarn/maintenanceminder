@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upcoming Maintenance</title>
+</head>
+<body>
+    <h1>Upcoming Maintenance</h1>
+    <ul>
+        {% for record in upcoming %}
+            <li>{{ record.name }} due on {{ record.next_service_date }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'index' %}">Back to Records</a>
+</body>
+</html>
+
