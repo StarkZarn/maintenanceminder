@@ -4,7 +4,6 @@ version = "0.1.0"
 description = "A local-only vehicle maintenance & service tracker"
 authors = ["StarkZarn <starkzarn@zarn.me>"]
 readme = "README.md"
-packages = [{include = "maintenanceminder", from = "src"}]
 license = "AGPL-3.0"
 repository = "https://github.com/starkzarn/maintenanceminder"
 keywords = ["vehicle", "maintenance", "django", "tracking", "service", "car", "truck", "python"]
