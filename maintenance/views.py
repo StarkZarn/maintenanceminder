@@ -1,28 +1,46 @@
-from django.shortcuts import render, redirect
-from .forms import ServiceRecordForm
-from .models import ServiceRecord
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import MaintenanceRecord
+from .forms import MaintenanceRecordForm
 
 
-def index(request):
-    records = ServiceRecord.objects.all()
-    return render(request, "maintenance/index.html", {"records": records})
+def maintenance_list(request):
+    records = MaintenanceRecord.objects.all()
+    return render(request, "maintenance/maintenance_list.html", {"records": records})
 
 
-def add_record(request):
+def maintenance_detail(request, pk):
+    record = get_object_or_404(MaintenanceRecord, pk=pk)
+    return render(request, "maintenance/maintenance_detail.html", {"record": record})
+
+
+def maintenance_create(request):
     if request.method == "POST":
-        form = ServiceRecordForm(request.POST)
+        form = MaintenanceRecordForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("index")
+            return redirect("maintenance_list")
     else:
-        form = ServiceRecordForm()
-    return render(request, "maintenance/add_record.html", {"form": form})
+        form = MaintenanceRecordForm()
+    return render(request, "maintenance/maintenance_form.html", {"form": form})
 
 
-def upcoming_maintenance(request):
-    upcoming = ServiceRecord.objects.filter(
-        category__name="Regular Maintenance",
-        next_service_date__lte=timezone.now()
-        + timedelta(days=30),  # example: next service due within 30 days
+def maintenance_update(request, pk):
+    record = get_object_or_404(MaintenanceRecord, pk=pk)
+    if request.method == "POST":
+        form = MaintenanceRecordForm(request.POST, instance=record)
+        if form.is_valid():
+            form.save()
+            return redirect("maintenance_list")
+    else:
+        form = MaintenanceRecordForm(instance=record)
+    return render(request, "maintenance/maintenance_form.html", {"form": form})
+
+
+def maintenance_delete(request, pk):
+    record = get_object_or_404(MaintenanceRecord, pk=pk)
+    if request.method == "POST":
+        record.delete()
+        return redirect("maintenance_list")
+    return render(
+        request, "maintenance/maintenance_confirm_delete.html", {"record": record}
     )
-    return render(request, "maintenance/upcoming.html", {"upcoming": upcoming})

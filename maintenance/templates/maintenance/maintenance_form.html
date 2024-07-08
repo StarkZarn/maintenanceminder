@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="my-4">{{ form.instance.pk|yesno:"Edit Record,New Record" }}</h1>
+<form method="post" class="needs-validation" novalidate>
+    {% csrf_token %}
+    <div class="form-group">
+        {{ form.non_field_errors }}
+        <label for="{{ form.date.id_for_label }}">Date:</label>
+        {{ form.date }}
+        {% if form.date.errors %}
+            <div class="invalid-feedback">
+                {% for error in form.date.errors %}
+                    <span>{{ error }}</span><br>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    <div class="form-group">
+        <label for="{{ form.mileage.id_for_label }}">Mileage:</label>
+        {{ form.mileage }}
+        {% if form.mileage.errors %}
+            <div class="invalid-feedback">
+                {% for error in form.mileage.errors %}
+                    <span>{{ error }}</span><br>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    <div class="form-group">
+        <label for="{{ form.cost.id_for_label }}">Cost:</label>
+        {{ form.cost }}
+        {% if form.cost.errors %}
+            <div class="invalid-feedback">
+                {% for error in form.cost.errors %}
+                    <span>{{ error }}</span><br>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    <div class="form-group">
+        <label for="{{ form.title.id_for_label }}">Title:</label>
+        {{ form.title }}
+        {% if form.title.errors %}
+            <div class="invalid-feedback">
+                {% for error in form.title.errors %}
+                    <span>{{ error }}</span><br>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    <div class="form-group">
+        <label for="{{ form.category.id_for_label }}">Category:</label>
+        {{ form.category }}
+        {% if form.category.errors %}
+            <div class="invalid-feedback">
+                {% for error in form.category.errors %}
+                    <span>{{ error }}</span><br>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    <div class="form-group">
+        <label for="{{ form.note.id_for_label }}">Note:</label>
+        {{ form.note }}
+        {% if form.note.errors %}
+            <div class="invalid-feedback">
+                {% for error in form.note.errors %}
+                    <span>{{ error }}</span><br>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+{% endblock %}
+

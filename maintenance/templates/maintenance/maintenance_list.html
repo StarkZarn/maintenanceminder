@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="my-4">Maintenance Records</h1>
+<div class="list-group">
+    {% for record in records %}
+        <a href="#" class="list-group-item list-group-item-action"
+           hx-get="{% url 'maintenance_detail' record.pk %}" hx-trigger="click" hx-target="#record-details" hx-swap="innerHTML">
+            <h5 class="mb-1">{{ record.title }}</h5>
+            <small>{{ record.date }}</small>
+        </a>
+    {% endfor %}
+</div>
+<div id="record-details" class="mt-4"></div>
+<a href="{% url 'maintenance_create' %}" class="btn btn-primary mt-4">Add New Record</a>
+{% endblock %}
+

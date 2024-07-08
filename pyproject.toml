@@ -11,12 +11,15 @@ keywords = ["vehicle", "maintenance", "django", "tracking", "service", "car", "t
 
 [tool.poetry.dependencies]
 python = "^3.11"
-django = "^5"
+django = "^5.0.6"
+psycopg = {extras = ["binary"], version = "^3.2.1"}
+htmx = "^0.0.0"
 
 
 [tool.poetry.group.dev.dependencies]
-black = "^24"
-pre-commit = "^3.7.1"
+black = "^24.4.2"
+flake8 = "^7.1.0"
+isort = "^5.13.2"
 
 [build-system]
 requires = ["poetry-core"]

@@ -1,0 +1,18 @@
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">{{ record.title }}</h5>
+    </div>
+    <div class="card-body">
+        <p class="card-text"><strong>Date:</strong> {{ record.date }}</p>
+        <p class="card-text"><strong>Mileage:</strong> {{ record.mileage }}</p>
+        <p class="card-text"><strong>Cost:</strong> {{ record.cost }}</p>
+        <p class="card-text"><strong>Category:</strong> {{ record.get_category_display }}</p>
+        <p class="card-text"><strong>Note:</strong> {{ record.note }}</p>
+        <a href="{% url 'maintenance_update' record.pk %}" class="btn btn-warning">Edit</a>
+        <form method="post" action="{% url 'maintenance_delete' record.pk %}" class="d-inline-block">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    </div>
+</div>
+
