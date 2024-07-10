@@ -10,7 +10,7 @@ keywords = ["vehicle", "maintenance", "django", "tracking", "service", "car", "t
 
 [tool.poetry.dependencies]
 python = "^3.11"
-django = "^5.0.6"
+django = "^5.0.7"
 psycopg = {extras = ["binary"], version = "^3.2.1"}
 htmx = "^0.0.0"
 
