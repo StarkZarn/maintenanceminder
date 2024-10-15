@@ -408,22 +408,23 @@ files = [
 
 [[package]]
 name = "fastapi"
-version = "0.109.2"
+version = "0.115.2"
 description = "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "fastapi-0.109.2-py3-none-any.whl", hash = "sha256:2c9bab24667293b501cad8dd388c05240c850b58ec5876ee3283c47d6e1e3a4d"},
-    {file = "fastapi-0.109.2.tar.gz", hash = "sha256:f3817eac96fe4f65a2ebb4baa000f394e55f5fccdaf7f75250804bc58f354f73"},
+    {file = "fastapi-0.115.2-py3-none-any.whl", hash = "sha256:61704c71286579cc5a598763905928f24ee98bfcc07aabe84cfefb98812bbc86"},
+    {file = "fastapi-0.115.2.tar.gz", hash = "sha256:3995739e0b09fa12f984bce8fa9ae197b35d433750d3d312422d846e283697ee"},
 ]
 
 [package.dependencies]
 pydantic = ">=1.7.4,<1.8 || >1.8,<1.8.1 || >1.8.1,<2.0.0 || >2.0.0,<2.0.1 || >2.0.1,<2.1.0 || >2.1.0,<3.0.0"
-starlette = ">=0.36.3,<0.37.0"
+starlette = ">=0.37.2,<0.41.0"
 typing-extensions = ">=4.8.0"
 
 [package.extras]
-all = ["email-validator (>=2.0.0)", "httpx (>=0.23.0)", "itsdangerous (>=1.1.0)", "jinja2 (>=2.11.2)", "orjson (>=3.2.1)", "pydantic-extra-types (>=2.0.0)", "pydantic-settings (>=2.0.0)", "python-multipart (>=0.0.7)", "pyyaml (>=5.3.1)", "ujson (>=4.0.1,!=4.0.2,!=4.1.0,!=4.2.0,!=4.3.0,!=5.0.0,!=5.1.0)", "uvicorn[standard] (>=0.12.0)"]
+all = ["email-validator (>=2.0.0)", "fastapi-cli[standard] (>=0.0.5)", "httpx (>=0.23.0)", "itsdangerous (>=1.1.0)", "jinja2 (>=2.11.2)", "orjson (>=3.2.1)", "pydantic-extra-types (>=2.0.0)", "pydantic-settings (>=2.0.0)", "python-multipart (>=0.0.7)", "pyyaml (>=5.3.1)", "ujson (>=4.0.1,!=4.0.2,!=4.1.0,!=4.2.0,!=4.3.0,!=5.0.0,!=5.1.0)", "uvicorn[standard] (>=0.12.0)"]
+standard = ["email-validator (>=2.0.0)", "fastapi-cli[standard] (>=0.0.5)", "httpx (>=0.23.0)", "jinja2 (>=2.11.2)", "python-multipart (>=0.0.7)", "uvicorn[standard] (>=0.12.0)"]
 
 [[package]]
 name = "flake8"
@@ -918,20 +919,21 @@ files = [
 
 [[package]]
 name = "nicegui"
-version = "1.4.28"
+version = "2.3.0"
 description = "Create web-based user interfaces with Python. The nice way."
 optional = false
 python-versions = "<4.0,>=3.8"
 files = [
-    {file = "nicegui-1.4.28-py3-none-any.whl", hash = "sha256:1982c60b35d7e3b1279f182329be96dfdc3688c4874637a7d47d14252c07288d"},
-    {file = "nicegui-1.4.28.tar.gz", hash = "sha256:21df8aa7a3b927fa42d8e63aff46b25d58856d37b12b0a86f662ea9227b0cf36"},
+    {file = "nicegui-2.3.0-py3-none-any.whl", hash = "sha256:55d582b27e5ac9c539b137f0d45d8114ed1123a1261f0bf16d955af6dbc2dd47"},
+    {file = "nicegui-2.3.0.tar.gz", hash = "sha256:b689bbe30f9e17625e9859d6b4840212fd807d68140e1120bce3f7e4ab99b55d"},
 ]
 
 [package.dependencies]
 aiofiles = ">=23.1.0"
-aiohttp = ">=3.9.2"
-docutils = ">=0.19,<0.20"
-fastapi = ">=0.109.1,<0.110.0"
+aiohttp = ">=3.10.2"
+certifi = ">=2024.07.04"
+docutils = ">=0.19.0"
+fastapi = ">=0.109.1"
 httpx = ">=0.24.0"
 ifaddr = ">=0.2.0"
 itsdangerous = ">=2.1.2,<3.0.0"
@@ -943,12 +945,13 @@ python-multipart = ">=0.0.7"
 python-socketio = {version = ">=5.10.0", extras = ["asyncio-client"]}
 requests = ">=2.32.0"
 typing-extensions = ">=4.0.0"
+urllib3 = ">=1.26.18,<2.0.0 || >2.0.0,<2.0.1 || >2.0.1,<2.0.2 || >2.0.2,<2.0.3 || >2.0.3,<2.0.4 || >2.0.4,<2.0.5 || >2.0.5,<2.0.6 || >2.0.6,<2.0.7 || >2.0.7,<2.1.0 || >2.1.0,<2.2.0 || >2.2.0,<2.2.1 || >2.2.1"
 uvicorn = {version = ">=0.22.0", extras = ["standard"]}
 vbuild = ">=0.8.2"
 watchfiles = ">=0.18.1"
 
 [package.extras]
-highcharts = ["nicegui-highcharts (>=1.0.1,<2.0.0)"]
+highcharts = ["nicegui-highcharts (>=2.0.2,<3.0.0)"]
 matplotlib = ["matplotlib (>=3.5.0,<4.0.0)"]
 native = ["pywebview (>=5.0.1,<6.0.0)"]
 plotly = ["plotly (>=5.13.0,<6.0.0)"]
@@ -1451,13 +1454,13 @@ doc = ["sphinx"]
 
 [[package]]
 name = "starlette"
-version = "0.36.3"
+version = "0.40.0"
 description = "The little ASGI library that shines."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "starlette-0.36.3-py3-none-any.whl", hash = "sha256:13d429aa93a61dc40bf503e8c801db1f1bca3dc706b10ef2434a36123568f044"},
-    {file = "starlette-0.36.3.tar.gz", hash = "sha256:90a671733cfb35771d8cc605e0b679d23b992f8dcfad48cc60b38cb29aeb7080"},
+    {file = "starlette-0.40.0-py3-none-any.whl", hash = "sha256:c494a22fae73805376ea6bf88439783ecfba9aac88a43911b48c653437e784c4"},
+    {file = "starlette-0.40.0.tar.gz", hash = "sha256:1a3139688fb298ce5e2d661d37046a66ad996ce94be4d4983be019a23a04ea35"},
 ]
 
 [package.dependencies]
